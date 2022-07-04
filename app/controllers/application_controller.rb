@@ -19,5 +19,18 @@ class ApplicationController < ActionController::Base
     @square_rooted_input = @input.to_f**0.5
     render({:template => "calculation_temp/square_root_result.html.erb"})
   end
+
+  def random_gen
+    render({:template => "calculation_temp/random_generate.html.erb"})
+  end
   
+  def random_result
+    @min = params.fetch("min_input")
+    @max = params.fetch("max_input")
+    @pick = rand(@min.to_f..@max.to_f)
+    render({:template => "calculation_temp/random_result.html.erb"})
+  end
+  def payment_calc
+    render({:template => "calculation_temp/payment_input.html.erb"})
+  end
 end
