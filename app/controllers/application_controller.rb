@@ -30,7 +30,16 @@ class ApplicationController < ActionController::Base
     @pick = rand(@min.to_f..@max.to_f)
     render({:template => "calculation_temp/random_result.html.erb"})
   end
+  
   def payment_calc
     render({:template => "calculation_temp/payment_input.html.erb"})
+  end
+
+  def payment_result
+    @apr = params.fetch("apr").to_f
+    @yrs = params.fetch("yrs").to_f
+    @principal = params.fetch("principal").to_f
+    @payment = @principal*(@apr/1200)*(@apr/1200+1)**(@yrs*12)/((@apr/1200+1)**(@yrs*12)-1)
+    render({:template => "calculation_temp/payment_result.html.erb"})
   end
 end

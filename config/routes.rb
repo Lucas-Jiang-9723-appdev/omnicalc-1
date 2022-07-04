@@ -6,5 +6,5 @@ get("/square_root/result", {:controller => "application", :action => "square_roo
 get("/random/new", {:controller => "application", :action => "random_gen"})
 get("/random/result", {:controller => "application", :action => "random_result"})
 get("/payment/new", {:controller => "application", :action => "payment_calc"})
-# get("", {:controller => "application", :action => ""})
+get("/payment/result", {:controller => "application", :action => "payment_result"})
 end
